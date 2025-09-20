@@ -1,42 +1,53 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+
+// SVG 아이콘 import
+import HomeIcon from "../../assets/icons/unSelectHome.svg";
+import HomeIconSelected from "../../assets/icons/selectHome.svg";
+
+import LockIcon from "../../assets/icons/unSelectLock.svg";
+import LockIconSelected from "../../assets/icons/selectLock.svg";
+
+import HeartIcon from "../../assets/icons/unSelectHeart.svg";
+import HeartIconSelected from "../../assets/icons/selectHeart.svg";
 
 type TabKey = "home" | "anonymous" | "mypage";
 
 const TabBar = () => {
   const [active, setActive] = useState<TabKey>("home");
 
-const tabs: { key: TabKey; label: string; icon: string }[] = [
-  { key: "home", label: "홈", icon: "home-outline" },
-  { key: "anonymous", label: "익명감정공유", icon: "chatbubble-ellipses-outline" },
-  { key: "mypage", label: "마이페이지", icon: "person-outline" },
-];
-
+  const tabs: {
+    key: TabKey;
+    label: string;
+    icon: { default: React.FC<any>; selected: React.FC<any> };
+  }[] = [
+    { key: "home", label: "홈", icon: { default: HomeIcon, selected: HomeIconSelected } },
+    { key: "anonymous", label: "익명감정공유", icon: { default: LockIcon, selected: LockIconSelected } },
+    { key: "mypage", label: "마이페이지", icon: { default: HeartIcon, selected: HeartIconSelected } },
+  ];
 
   return (
     <View style={styles.container}>
-      {tabs.map((tab) => (
-        <TouchableOpacity
-          key={tab.key}
-          onPress={() => setActive(tab.key)}
-          style={styles.tab}
-        >
-          <Ionicons
-            name={tab.icon}
-            size={24}
-            color={active === tab.key ? "#007AFF" : "#666"}
-          />
-          <Text
-            style={[
-              styles.label,
-              { color: active === tab.key ? "#007AFF" : "#666" },
-            ]}
+      {tabs.map((tab) => {
+        const Icon = active === tab.key ? tab.icon.selected : tab.icon.default;
+        return (
+          <TouchableOpacity
+            key={tab.key}
+            onPress={() => setActive(tab.key)}
+            style={styles.tab}
           >
-            {tab.label}
-          </Text>
-        </TouchableOpacity>
-      ))}
+            <Icon width={24} height={24} />
+            <Text
+              style={[
+                styles.label,
+                { color: active === tab.key ? "#007AFF" : "#666" },
+              ]}
+            >
+              {tab.label}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 };
