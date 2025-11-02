@@ -3,6 +3,7 @@ import React from "react";
 import { View, StatusBar, StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import BogumiLogo from "./src/assets/icons/logo.svg";
+import CircleButtons from "./src/components/CircleButtons";
 
 function HomeScreen() {
   return (
@@ -11,6 +12,7 @@ function HomeScreen() {
       <View style={styles.header}>
         <BogumiLogo width={120} height={120} />
       </View>
+      <CircleButtons />
     </SafeAreaView>
   );
 }
