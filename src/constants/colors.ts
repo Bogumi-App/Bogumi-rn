@@ -18,6 +18,21 @@ export const colors = {
   // Darker Pink
   darkerPink: '#592723',
   
+  // Gray colors
+  lightGray: '#f5f5f5',
+  lightHoverGray: '#f0f0f0',
+  lightActiveGray: '#dfdfdf',
+  
+  normalGray: '#989898',
+  normalHoverGray: '#898989',
+  normalActiveGray: '#7a7a7a',
+  
+  darkGray: '#727272',
+  darkHoverGray: '#5b5b5b',
+  darkActiveGray: '#444444',
+  
+  darkerGray: '#353535',
+  
   // Common colors
   white: '#ffffff',
   black: '#000000',
