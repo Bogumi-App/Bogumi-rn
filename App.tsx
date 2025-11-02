@@ -1,38 +1,14 @@
 // App.tsx
 import React from "react";
-import { View, StatusBar, StyleSheet } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import BogumiLogo from "./src/assets/icons/logo.svg";
-import CircleButtons from "./src/components/CircleButtons";
-
-function HomeScreen() {
-  return (
-    <SafeAreaView style={styles.container} edges={["left", "right", "bottom"]}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFF1EF" />
-      <View style={styles.header}>
-        <BogumiLogo width={120} height={120} />
-      </View>
-      <CircleButtons />
-    </SafeAreaView>
-  );
-}
+import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import HomeScreen from "./src/pages/HomeScreen";
 
 export default function App() {
   return (
     <SafeAreaProvider>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFF1EF" />
       <HomeScreen />
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFF1EF",
-  },
-  header: {
-    alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop: 20,
-  },
-});
