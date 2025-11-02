@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { colors } from '../constants/colors';
 
 interface CircleButtonProps {
   onPress: () => void;
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#FF6B6B',
+    backgroundColor: colors.normalPink,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
