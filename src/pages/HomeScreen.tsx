@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BogumiLogo from "../assets/icons/logo.svg";
 import CircleButtons from "../components/CircleButtons";
+import { colors } from "../constants/colors";
 
 const HomeScreen: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const HomeScreen: React.FC = () => {
         <BogumiLogo width={120} height={120} />
       </View>
       <View style={styles.banner}>
-        <Text style={styles.bannerText}>오늘 n커플이 다시 이어졌어요</Text>
+        <Text style={styles.bannerText}>오늘 17커플이 다시 이어졌어요</Text>
       </View>
       <CircleButtons />
     </SafeAreaView>
@@ -21,7 +22,7 @@ const HomeScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF1EF",
+    backgroundColor: colors.lightPink,
   },
   header: {
     alignItems: "center",
@@ -29,9 +30,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   banner: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: "#FF7063",
+    borderColor: colors.normalPink,
     borderRadius: 30,
     marginHorizontal: 96,
     paddingVertical: 12,
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   bannerText: {
-    color: "#FF7063",
+    color: colors.normalPink,
     fontSize: 14,
     fontFamily: "Pretendard-Regular",
     textAlign: "center",
